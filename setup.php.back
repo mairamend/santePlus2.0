@@ -1,0 +1,58 @@
+<?php
+require_once 'app/Database.php';
+
+$pdo = Database::getConnexion();
+
+// TRÈS IMPORTANT : Activer le support des clés étrangères dans SQLite
+$pdo->exec("PRAGMA foreign_keys = ON;");
+
+$queries = [
+    "CREATE TABLE IF NOT EXISTS utilisateurs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nom TEXT NOT NULL,
+        email TEXT NOT NULL UNIQUE,
+        mot_de_passe TEXT NOT NULL,
+        role TEXT CHECK(role IN ('admin', 'medecin')) DEFAULT 'medecin',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )",
+
+    "CREATE TABLE IF NOT EXISTS medecins (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        nom TEXT NOT NULL,
+        specialite TEXT NOT NULL,
+        email TEXT NOT NULL UNIQUE,
+        telephone TEXT NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+    )",
+
+    "CREATE TABLE IF NOT EXISTS patients (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nom TEXT NOT NULL,
+        prenom TEXT NOT NULL,
+        date_naissance TEXT NOT NULL,
+        telephone TEXT NOT NULL,
+        adresse TEXT NOT NULL
+    )",
+
+    "CREATE TABLE IF NOT EXISTS rendezvous (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        patient_id INTEGER NOT NULL,
+        medecin_id INTEGER NOT NULL,
+        date_rv TEXT NOT NULL,
+        heure_rv TEXT NOT NULL,
+        motif TEXT NOT NULL,
+        statut TEXT CHECK(statut IN ('programmé','effectué','annulé','absent')) DEFAULT 'programmé',
+        FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE CASCADE,
+        FOREIGN KEY (medecin_id) REFERENCES medecins(id) ON DELETE CASCADE
+    )"
+];
+
+try {
+    foreach ($queries as $sql) {
+        $pdo->exec($sql);
+    }
+    echo "Base de données configurée avec succès !";
+} catch (PDOException $e) {
+    die("Erreur lors de la création des tables : " . $e->getMessage());
+}
