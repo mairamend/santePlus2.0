@@ -4,23 +4,7 @@
     </div>
     
     <div class="form-body">
-        <?php if (isset($_SESSION['errors'])): ?>
-            <div class="alert alert-danger">
-                <ul class="mb-0">
-                    <?php foreach ($_SESSION['errors'] as $error): ?>
-                        <li><?= $error ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <?php unset($_SESSION['errors']); 
-            endif;?>
-
-            <?php if(isset($_SESSION['success'])):?>
-                <div class="alert alert-success">
-                    <?= $_SESSION['success'] ?>
-                </div>
-            <?php  unset($_SESSION['success']);
-            endif; ?>
+       
 
         <form action="/patients/ajouter" method="POST">
             <label class="form-label text-muted small">Nom</label>

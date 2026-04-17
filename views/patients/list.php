@@ -1,6 +1,7 @@
 <?php 
 include __DIR__ . '/../layout/header.php'; ?>
 <div class="main-layout">
+     <?php include __DIR__ . '/../layout/_alerts.php'?>
     <div class="card-section">
         <div class="section-header">
             <span class="section-title"><i class="bi bi-people-fill"></i> Liste des Patients</span>
@@ -69,7 +70,7 @@ include __DIR__ . '/../layout/header.php'; ?>
             <?php endfor; ?>
         </div>
     </div>
-    <!-- inclure ici le formulaire -->
+   
      <?php include __DIR__ . '/_form.php'; ?>
 </div>
 <?php include __DIR__ . '/_modal_modifier.php'; ?>
@@ -78,11 +79,11 @@ include __DIR__ . '/../layout/header.php'; ?>
     btn.addEventListener("click", function() {
         let id = this.dataset.id;
 
-        // On appelle la nouvelle route MVC
+   
         fetch("/patients/get?id=" + id)
             .then(response => response.json())
             .then(data => {
-                // Remplissage du modal (ton code actuel est bon)
+            
                 document.getElementById("patient_id").value = data.id;
                 document.querySelector("#modifierPatient input[name='nom']").value = data.nom;
                 document.querySelector("#modifierPatient input[name='prenom']").value = data.prenom;
