@@ -59,10 +59,14 @@ abstract class Model{
 
             $sql = "INSERT INTO $table ($colums) VALUES ($placeholders)";
             }
-        $stmt = $pdo->prepare($sql);
-        $result = $stmt->execute($data);
+            $stmt = $pdo->prepare($sql);
+            if($stmt->execute($data)){
+                
+                return $id ?: $pdo->lastInsertId();
+                
+            }
         
-        return $result;
+            return false;
         }catch(PDOException $e){
             die("Erreur SQL : " . $e->getMessage());
         }

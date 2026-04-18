@@ -1,7 +1,8 @@
 <?php 
-include __DIR__ . '/../layout/header.php'; ?>
+include __DIR__ . '/../layout/header.php'; 
+include __DIR__ . '/../layout/_alerts.php'?>
 <div class="main-layout">
-     <?php include __DIR__ . '/../layout/_alerts.php'?>
+     
     <div class="card-section">
         <div class="section-header">
             <span class="section-title"><i class="bi bi-people-fill"></i> Liste des Patients</span>
