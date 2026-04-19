@@ -6,4 +6,7 @@ $router->add('/patients/modifier', 'PatientController', 'update');
 $router->add('/patients/supprimer', 'PatientController', 'destroy');
 $router->add('/medecins', 'MedecinController','index');
 $router->add('/medecins/ajouter','MedecinController','store');
+$router->add('/medecins/get', 'MedecinController', 'getMedecinJson');
+$router->add('/medecins/modifier','MedecinController', 'update');
+$router->add('/medecins/supprimer', 'MedecinController', 'destroy');
 // var_dump($router);

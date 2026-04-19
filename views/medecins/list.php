@@ -105,15 +105,15 @@ include __DIR__ . '/../layout/header.php';
 
 
     </div>
-
+<?php include __DIR__ .'/_modal_medecin.php'?>
 
     <script>
-        document.querySelectorAll(".btn-modifier").forEach(btn => {
+        document.querySelectorAll(".modifier").forEach(btn => {
             btn.addEventListener("click", function() {
                 let id = this.dataset.id;
 
                 // Appel AJAX vers PHP pour récupérer les infos du médecin
-                fetch("medecins/getMedecin.php?id=" + id)
+                fetch("medecins/get?id=" + id)
                     .then(response => response.json())
                     .then(data => {
                         // Remplir les champs du modal
@@ -130,7 +130,7 @@ include __DIR__ . '/../layout/header.php';
             });
         });
         setTimeout(() => {
-            document.querySelectorAll('.alert-sante').forEach(el => el.remove());
+            document.querySelectorAll('.alert').forEach(el => el.remove());
         }, 3000);
     </script>
     <?php include __DIR__ . '/../layout/footer.php'; ?>

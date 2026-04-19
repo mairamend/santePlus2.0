@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
 
-            <form action="medecins/modifier.php" method="POST">
+            <form action="medecins/modifier" method="POST">
                 <div class="modal-body">
                     <input type="hidden" name="id" id="medecin_id">
                     <input type="text" name="nom" class="form-control mb-2" required>

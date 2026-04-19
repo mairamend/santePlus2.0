@@ -14,15 +14,15 @@ $pdo = Database::getConnexion();
 // ('Ba', 'Khadija', '1982-09-02', '768889900', 'Guédiawaye, Arrêt 12'),
 // ('Cissé', 'Boubacar', '1970-11-11', '775556677', 'Rufisque, Rue des Forgerons'),
 // ('Touré', 'Aminata', '2005-04-05', '783332211', 'Plateau, Avenue Pompidou')";
-$sql1 = "
-    INSERT INTO utilisateurs (nom, email, mot_de_passe, role, created_at) VALUES
-('Mairame Ndiath', 'mairamendiath@santeplus.com', 'admin123', 'admin', '2026-03-11 16:43:46'),
-('Dr. Arona Sarr', 'arona.sarr@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19'),
-('Dr. Fatoumata Sy', 'fatou.sy@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19'),
-('Dr. Jean Gomis', 'jean.gomis@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19'),
-('Dr. Aminata Wade', 'ami.wade@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19'),
-('Dr. Oumar Konaté', 'oumar.konate@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19');
-    ";
+// $sql1 = "
+//     INSERT INTO utilisateurs (nom, email, mot_de_passe, role, created_at) VALUES
+// ('Mairame Ndiath', 'mairamendiath@santeplus.com', 'admin123', 'admin', '2026-03-11 16:43:46'),
+// ('Dr. Arona Sarr', 'arona.sarr@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19'),
+// ('Dr. Fatoumata Sy', 'fatou.sy@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19'),
+// ('Dr. Jean Gomis', 'jean.gomis@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19'),
+// ('Dr. Aminata Wade', 'ami.wade@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19'),
+// ('Dr. Oumar Konaté', 'oumar.konate@santeplus.sn', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'medecin', '2026-03-11 16:49:19');
+//     ";
 // $sql = "INSERT INTO medecins ( user_id, nom, specialite, email, telephone) VALUES
 // ( 2, 'Dr. Arona Sarr', 'Cardiologue', 'arona.sarr@santeplus.sn', '775001020'),
 // ( 3, 'Dr. Fatoumata Sy', 'Pédiatre', 'fatou.sy@santeplus.sn', '786003040'),
@@ -31,6 +31,7 @@ $sql1 = "
 // ( 6, 'Dr. Oumar Konaté', 'Ophtalmologue', 'oumar.konate@santeplus.sn', '772009010')";
 
 // $pdo->exec($sql);
-$pdo->exec($sql1);
+// $sql = "Delete FROM utilisateurs WHERE id = 11";
+// $pdo->exec($sql);
 
-echo "Medecins de test ajoutés avec succès !";
+// echo "Utilisateur supprimé avec succés!";
